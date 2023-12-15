@@ -21,7 +21,7 @@ class FuncionarioEdit(UpdateView):
 
 class FuncionarioDelete(DeleteView):
     model = Funcionario
-    success_url = reverse_lazy('list_funcionarios')
+    success_url = reverse_lazy('list_funcionario')
 
 
 class FuncionarioCreate(CreateView):

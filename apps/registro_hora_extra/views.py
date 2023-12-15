@@ -16,6 +16,7 @@ class HoraExtraList(ListView):
 class HoraExtraEdit(UpdateView):
     model = RegistroHoraExtra
     form_class = RegistroHoraExtraForm
+    success_url = reverse_lazy('list_hora_extra')
 
     def get_form_kwargs(self):
         kwargs = super(HoraExtraEdit, self).get_form_kwargs()

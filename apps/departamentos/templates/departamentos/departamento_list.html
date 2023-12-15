@@ -2,15 +2,15 @@
 {% load bootstrap %}
 
 {% block main %}
-    List
+    <h3>Departamentos</h3>
 <br>
     {% for departamento in object_list %}
-        <a href="{% url 'update_departamentos' departamento.id %}">
+        <a class="btn btn-outline-success btn-sm" href="{% url 'update_departamentos' departamento.id %}">
             {{ departamento }}
         </a>
-        <a href="{% url 'delete_departamentos' departamento.id %}">
+        <a class="btn btn-danger btn-sm" href="{% url 'delete_departamentos' departamento.id %}">
             Deletar
-        </a>
+        </a><br>
         <br>
     {% endfor %}
     <a href="{% url 'create_departamentos' %}" class="btn btn-info"> Novo </a>

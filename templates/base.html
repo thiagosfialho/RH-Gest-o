@@ -12,7 +12,45 @@
 </head>
 <body>
     <div class="container text-center">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="/"><img src="static/img/BI.png" alt="Logo" height="70"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="/funcionarios"> Funcionarios <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/departamentos/">Departamentos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/horas-extras/">Banco de horas</a>
+              </li>
+            </ul>
+            <div class="mr-auto">
+            <span class="navbar-text">
+                Olá {{ usuario.funcionario.nome }}
+            </span>
+            </div>
+            <div>
+            <form class="form-inline">
+                {% if usuario.funcionario.empresa %}
+                    <a class="btn btn-light btn-sm" href="{% url 'edit_empresa' usuario.funcionario.empresa.id %}">Editar empresa</a>
+                {% else %}
+                    <a class="btn btn-light btn-sm" href="{% url 'create_empresa' %}">Criar empresa</a>
+                {% endif %}
+                <div class="mr-auto"> <a class="btn btn-outline-light btn-sm" href="{% url 'logout' %}">Logout</a> </div>
+            </form>
+            </div>
+          </div>
+        </nav>
       {% block main %} {% endblock %}
+
     </div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
 </body>
 </html>

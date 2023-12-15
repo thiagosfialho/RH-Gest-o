@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 
 {% block main %}
-    Banco de Horas
+    <h3>Banco de Horas</h3>
 <br>
     {% for registro_re in object_list %}
-        <a href="{% url 'update_hora_extra' registro_re.id %}">
+        <a class="btn btn-outline-success btn-sm" href="{% url 'update_hora_extra' registro_re.id %}">
             {{ registro_re }}
         </a>
-        <a href="{% url 'delete_hora_extra' registro_re.id %}">
+        <a class="btn btn-danger btn-sm" href="{% url 'delete_hora_extra' registro_re.id %}">
             Deletar
-        </a>
+        </a><br>
         <br>
     {% endfor %}
     {% if not object_list %}
